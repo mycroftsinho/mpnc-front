@@ -1,0 +1,40 @@
+<div class="content-heading">
+    Categorias
+    <div class="ml-auto">
+        <div class="btn-group" dropdown>
+            <button class="btn btn-link" dropdownToggle>
+                <em class="fa fa-ellipsis-v fa-lg"></em>
+            </button>
+            <ul *dropdownMenu class="dropdown-menu dropdown-menu-right-forced animated fadeInLeft" role="menu">
+                <button class="dropdown-item" (click)="NovaCategoria()">
+                    <em class="fa-fw fa fa-plus mr-2"></em>
+                    <span>Nova Categoria</span>
+                </button>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-4 col-sm-6" *ngFor="let p of categorias;">
+        <div class="card card-default">
+            <div class="card-header">
+                <a class="float-right text-muted" (click)="favContact1=!favContact1">
+                    <em class="fa" [ngClass]="favContact1 ? 'fa-star text-warning' : 'fa-star-o'"></em>
+                </a>
+            </div>
+            <div class="card-body text-center">
+                <img class="mb-2 img-fluid rounded-circle thumb64" src="assets/img/categorias.png" alt="Categorias" />
+                <h3>{{p.descricao}}</h3>
+            </div>
+            <div class="card-footer d-flex">
+                <div>
+                    <button type="button" class="btn btn-xs btn-primary" (click)="AlterarCategoria(p.id)">Alterar</button>
+                </div>
+                <div class="ml-auto">
+                    <button type="button" class="btn btn-xs btn-danger" (click)="RemoverCategoria(p)">Remover</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

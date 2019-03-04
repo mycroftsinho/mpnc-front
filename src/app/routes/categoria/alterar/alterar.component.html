@@ -1,0 +1,30 @@
+<div class="content-heading">
+    <div>Categoria
+        <small>Nova Categoria</small>
+    </div>
+</div>
+
+<div class="card card-default">
+    <div class="card-header">Categoria</div>
+    <div class="card-body">
+        <form [formGroup]="categoriaForm" class="form-validate form-horizontal"
+            (submit)="submitForm($event, categoriaForm.value)">
+            <fieldset>
+                <div class="col-md-12">
+                    <div class="form-row">
+                        <div class="col-lg-6 mb-3">
+                            <label>Descricao</label>
+                            <input class="form-control" type="text" formControlName="Descricao"
+                                [formControl]="categoriaForm.controls['Descricao']" placeholder="Descricao" />
+                            <span class="text-danger"
+                                *ngIf="categoriaForm.controls['Descricao'].hasError('required') && (categoriaForm.controls['Descricao'].dirty || categoriaForm.controls['Descricao'].touched)">Campo
+                                Obrigatório</span>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary" type="submit">Enviar Formulario</button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>

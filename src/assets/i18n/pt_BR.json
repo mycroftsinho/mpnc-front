@@ -1,0 +1,24 @@
+{
+    "header": {
+        "search": {
+            "PLACEHOLDER": "Digite e Pressione Enter.."
+        }
+    },
+    "offsidebar": {
+        "setting": {
+            "SETTINGS": "Configuração"
+        }
+    },
+    "sidebar": {
+        "WELCOME": "Bem-Vindo",
+        "heading": {
+            "HEADER": "Menu Principal"
+        },
+        "nav": {
+            "SINGLEVIEW": "Página Vazia"
+        }
+    },
+    "dashboard": {
+        "WELCOME": "Bem-Vindo"
+    }
+}

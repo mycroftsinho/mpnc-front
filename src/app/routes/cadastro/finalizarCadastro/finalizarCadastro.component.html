@@ -1,0 +1,119 @@
+<div class="content-heading">
+    <div>Cadastro
+        <small>Finalização de Cadastro do Motorista</small>
+    </div>
+</div>
+
+<div class="card card-default">
+    <div class="card-header">Dados Cadastrais</div>
+    <div class="card-body">
+        <form [formGroup]="motoristaForm" class="form-validate form-horizontal"
+            (submit)="submitForm($event, motoristaForm.value)">
+            <fieldset>
+                <div class="col-md-12">
+                    <div class="form-row">
+                        <div class="col-lg-3 mb-3">
+                            <label>Nome</label>
+                            <input class="form-control" type="text" formControlName="Nome"
+                                [formControl]="motoristaForm.controls['Nome']" placeholder="Nome" />
+                            <span class="text-danger"
+                                *ngIf="motoristaForm.controls['Nome'].hasError('required') && (motoristaForm.controls['Nome'].dirty || motoristaForm.controls['Nome'].touched)">Campo
+                                Obrigatório</span>
+                        </div>
+                        <div class="col-lg-3 mb-3">
+                            <label>Sobrenome</label>
+                            <input class="form-control" type="text" formControlName="Sobrenome"
+                                [formControl]="motoristaForm.controls['Sobrenome']" placeholder="Sobrenome" />
+                            <span class="text-danger"
+                                *ngIf="motoristaForm.controls['Sobrenome'].hasError('required') && (motoristaForm.controls['Sobrenome'].dirty || motoristaForm.controls['Sobrenome'].touched)">Campo
+                                Obrigatório</span>
+                        </div>
+                        <div class="col-lg-3 mb-3">
+                            <label>Email</label>
+                            <input class="form-control" type="text" formControlName="Email"
+                                [formControl]="motoristaForm.controls['Email']" placeholder="Email" />
+                            <span class="text-danger"
+                                *ngIf="motoristaForm.controls['Email'].hasError('required') && (motoristaForm.controls['Email'].dirty || motoristaForm.controls['Email'].touched)">Campo
+                                Obrigatório</span>
+                        </div>
+                        <div class="col-lg-3 mb-3">
+                            <label>Telefone</label>
+                            <input class="form-control" type="text" formControlName="Telefone"
+                                [formControl]="motoristaForm.controls['Telefone']" placeholder="Telefone" />
+                            <span class="text-danger"
+                                *ngIf="motoristaForm.controls['Telefone'].hasError('required') && (motoristaForm.controls['Telefone'].dirty || motoristaForm.controls['Telefone'].touched)">Campo
+                                Obrigatório</span>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="col-lg-3 mb-3">
+                            <label>RG</label>
+                            <input class="form-control" type="text" formControlName="Rg"
+                                [formControl]="motoristaForm.controls['Rg']" placeholder="RG" />
+                            <span class="text-danger"
+                                *ngIf="motoristaForm.controls['Rg'].hasError('required') && (motoristaForm.controls['Rg'].dirty || motoristaForm.controls['Rg'].touched)">Campo
+                                Obrigatório</span>
+                        </div>
+                        <div class="col-lg-3 mb-3">
+                            <label>CPF</label>
+                            <input class="form-control" type="text" formControlName="Cpf"
+                                [formControl]="motoristaForm.controls['Cpf']" placeholder="CPF" />
+                            <span class="text-danger"
+                                *ngIf="motoristaForm.controls['Cpf'].hasError('required') && (motoristaForm.controls['Cpf'].dirty || motoristaForm.controls['Cpf'].touched)">Campo
+                                Obrigatório</span>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="col-lg-3 mb-3">
+                            <label>CEP</label>
+                            <input class="form-control" type="text" formControlName="Cep"
+                                [formControl]="motoristaForm.controls['Cep']" placeholder="CEP" />
+                            <span class="text-danger"
+                                *ngIf="motoristaForm.controls['Cep'].hasError('required') && (motoristaForm.controls['Cep'].dirty || motoristaForm.controls['Cep'].touched)">Campo
+                                Obrigatório</span>
+                        </div>
+                        <div class="col-lg-6 mb-3">
+                            <label>Rua</label>
+                            <input class="form-control" type="text" formControlName="Rua"
+                                [formControl]="motoristaForm.controls['Rua']" placeholder="Rua" />
+                            <span class="text-danger"
+                                *ngIf="motoristaForm.controls['Rua'].hasError('required') && (motoristaForm.controls['Rua'].dirty || motoristaForm.controls['Rua'].touched)">Campo
+                                Obrigatório</span>
+                        </div>
+                        <div class="col-lg-3 mb-3">
+                            <label>Número</label>
+                            <input class="form-control" type="text" formControlName="Numero"
+                                [formControl]="motoristaForm.controls['Numero']" placeholder="Numero" />
+                            <span class="text-danger"
+                                *ngIf="motoristaForm.controls['Numero'].hasError('required') && (motoristaForm.controls['Numero'].dirty || motoristaForm.controls['Numero'].touched)">Campo
+                                Obrigatório</span>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="col-lg-6 mb-3">
+                            <label>Bairro</label>
+                            <input class="form-control" type="text" formControlName="Bairro"
+                                [formControl]="motoristaForm.controls['Bairro']" placeholder="Bairro" />
+                            <span class="text-danger"
+                                *ngIf="motoristaForm.controls['Bairro'].hasError('required') && (motoristaForm.controls['Bairro'].dirty || motoristaForm.controls['Bairro'].touched)">Campo
+                                Obrigatório</span>
+                        </div>
+                        <div class="col-lg-3 mb-3">
+                            <label>Cidade</label>
+                            <input class="form-control" type="text" formControlName="Cidade"
+                                [formControl]="motoristaForm.controls['Cidade']" placeholder="Cidade" />
+                            <span class="text-danger"
+                                *ngIf="motoristaForm.controls['Cidade'].hasError('required') && (motoristaForm.controls['Cidade'].dirty || motoristaForm.controls['Cidade'].touched)">Campo
+                                Obrigatório</span>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary" type="submit">Enviar Formulario</button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>

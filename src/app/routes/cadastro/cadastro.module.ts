@@ -4,17 +4,14 @@ import { CustomFormsModule } from 'ng2-validation';
 import { FileUploadModule } from 'ng2-file-upload';
 
 import { SharedModule } from '../../shared/shared.module';
-import { MotoristaComponent } from './motorista/motorista.component';
+import { SolicitacaoComponent } from './solicitacao/solicitacao.component';
+import { PendentesComponent } from './pendentes/pendentes.component';
 import { VisualizarComponent } from './visualizar/visualizar.component';
-import { FinalizarCadastroComponent } from './finalizarCadastro/finalizarCadastro.component';
-import { ListarCadastrosPendentesComponent } from './listarCadastrosPendentes/listarCadastrosPendentes.component';
-
 
 const routes: Routes = [
-    { path: 'motorista', component: MotoristaComponent },
-    { path: 'visualizar', component: VisualizarComponent },
-    { path: 'finalizarCadastro', component: FinalizarCadastroComponent },
-    { path: 'listarCadastrosPendentes', component: ListarCadastrosPendentesComponent }
+    { path: 'solicitacao', component: SolicitacaoComponent },
+    { path: 'pendentes', component: PendentesComponent },
+    { path: 'visualizar', component: VisualizarComponent }
 ];
 
 @NgModule({
@@ -25,14 +22,12 @@ const routes: Routes = [
         FileUploadModule,
     ],
     declarations: [
-        MotoristaComponent,
-        VisualizarComponent,
-        FinalizarCadastroComponent,
-        ListarCadastrosPendentesComponent
+        SolicitacaoComponent,
+        PendentesComponent,
+        VisualizarComponent
     ],
     exports: [
         RouterModule
-    ],
-    providers: []
+    ]
 })
 export class CadastroModule { }

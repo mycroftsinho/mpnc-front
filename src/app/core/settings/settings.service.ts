@@ -20,7 +20,7 @@ export class SettingsService {
         // App Settings
         // -----------------------------------
         this.app = {
-            name: 'Frete Online',
+            name: 'Buscador Online',
             description: 'Angular Bootstrap Admin Template',
             year: ((new Date()).getFullYear())
         };

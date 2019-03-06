@@ -1,35 +1,25 @@
 import { Component, OnInit } from '@angular/core';
-import { CadastroService, AprovacaoRequest } from '../../../services/cadastro/CadastroService';
 import { Router } from '@angular/router';
+import { CadastroService } from '../../../services/cadastro/CadastroService';
+import { AprovacaoRequest } from '../../../services/models/AprovacaoRequest';
 
 const swal = require('sweetalert');
 
 @Component({
-    selector: 'app-listarcadastros',
-    templateUrl: './listarCadastrosPendentes.component.html',
-    styleUrls: ['./listarCadastrosPendentes.component.scss'],
+    selector: 'app-pendentes',
+    templateUrl: './pendentes.component.html',
+    styleUrls: ['./pendentes.component.scss'],
     providers: [CadastroService]
 })
 
-export class ListarCadastrosPendentesComponent implements OnInit {
+export class PendentesComponent implements OnInit {
 
     cadastros: any = [];
 
-    constructor(private service: CadastroService, private router: Router) { }
-
+    constructor(private service: CadastroService, private router: Router) {}
 
     ngOnInit() {
         this.BuscarCadastros();
-    }
-
-    IrParaVisualizacao(id: string, email: string) {
-        this.router.navigate(['/cadastro/visualizar'],
-            {
-                queryParams: {
-                    'id': id,
-                    'email': email,
-                }
-            });
     }
 
     BuscarCadastros() {
@@ -40,10 +30,20 @@ export class ListarCadastrosPendentesComponent implements OnInit {
         });
     }
 
+    IrParaVisualizacao(nome: string, email: string) {
+        this.router.navigate(['/cadastro/visualizar'],
+            {
+                queryParams: {
+                    nome,
+                    email,
+                }
+            });
+    }
+
     AprovarCadastro(aprovacao: boolean, cadastro: any) {
-        let obj: AprovacaoRequest = new AprovacaoRequest();
+        const obj: AprovacaoRequest = new AprovacaoRequest();
         obj.Email = cadastro.email;
-        obj.MotoristaId = cadastro.motoristaId;
+        obj.LojaId = cadastro.lojaId;
         obj.IntencaoDeAprovacao = aprovacao;
 
         this.service.AprovarCadastroDoMotorista(obj).subscribe((result) => {
@@ -74,4 +74,5 @@ export class ListarCadastrosPendentesComponent implements OnInit {
             icon: 'warning'
         });
     }
+
 }

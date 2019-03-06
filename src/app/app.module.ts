@@ -12,7 +12,6 @@ import { CoreModule } from './core/core.module';
 import { LayoutModule } from './layout/layout.module';
 import { SharedModule } from './shared/shared.module';
 import { RoutesModule } from './routes/routes.module';
-import { CadastroService } from './services/cadastro/CadastroService';
 
 // https://github.com/ocombe/ng2-translate/issues/218
 export function createTranslateLoader(http: HttpClient) {
@@ -39,7 +38,7 @@ export function createTranslateLoader(http: HttpClient) {
             }
         })
     ],
-    providers: [CadastroService],
+    providers: [],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

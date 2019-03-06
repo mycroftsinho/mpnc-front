@@ -11,23 +11,15 @@ export class HomeComponent implements OnInit {
 
     constructor(private router: Router) { }
 
-    CadastroDeMotorista() {
-        this.router.navigate(['/cadastro/motorista']);
+    ngOnInit() {
+    }
+
+    CadastroDaLoja() {
+        this.router.navigate(['/cadastro/solicitacao']);
     }
 
     AprovarCadastro() {
-        this.router.navigate(['/cadastro/listarCadastrosPendentes']);
-    }
-
-    ManterCategoria() {
-        this.router.navigate(['/categoria']);
-    }
-
-    ManterMercadoria() {
-        this.router.navigate(['/mercadoria']);
-    }
-
-    ngOnInit() {
+        this.router.navigate(['/cadastro/pendentes']);
     }
 
 }

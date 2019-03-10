@@ -43,10 +43,10 @@ export class PendentesComponent implements OnInit {
     AprovarCadastro(aprovacao: boolean, cadastro: any) {
         const obj: AprovacaoRequest = new AprovacaoRequest();
         obj.Email = cadastro.email;
-        obj.LojaId = cadastro.lojaId;
+        obj.Nome = cadastro.nome;
         obj.IntencaoDeAprovacao = aprovacao;
 
-        this.service.AprovarCadastroDoMotorista(obj).subscribe((result) => {
+        this.service.AprovarCadastroDoLojista(obj).subscribe((result) => {
             this.RemoverItemDaLista(cadastro);
         }, (err) => {
             console.log('Teste2');

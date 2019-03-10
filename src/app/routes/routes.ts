@@ -26,7 +26,9 @@ export const routes = [
             { path: 'blog', loadChildren: './blog/blog.module#BlogModule' },
             { path: 'ecommerce', loadChildren: './ecommerce/ecommerce.module#EcommerceModule' },
             { path: 'extras', loadChildren: './extras/extras.module#ExtrasModule' },
-            { path: 'cadastro', loadChildren: './cadastro/cadastro.module#CadastroModule' }
+            { path: 'cadastro', loadChildren: './cadastro/cadastro.module#CadastroModule' },
+            { path: 'cliente', loadChildren: './cliente/cliente.module#ClienteModule' },
+            { path: 'cota', loadChildren: './cota/cota.module#CotaModule' }
         ]
     },
 

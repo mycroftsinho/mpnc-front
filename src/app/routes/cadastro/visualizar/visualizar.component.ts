@@ -46,8 +46,8 @@ export class VisualizarComponent implements OnInit {
         obj.Nome = this.cadastro.nome;
         obj.IntencaoDeAprovacao = aprovacao;
 
-        this.service.AprovarCadastroDoMotorista(obj).subscribe((result) => {
-            this.router.navigate(['/cadastro/listarCadastrosPendentes']);
+        this.service.AprovarCadastroDoLojista(obj).subscribe((result) => {
+            this.router.navigate(['/cadastro/pendentes']);
         }, (err) => {
             console.log('Teste2');
             if (err.status === 404) {

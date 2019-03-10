@@ -12,7 +12,6 @@ const httpOptionsJson = {
 @Injectable()
 
 export class CadastroService {
-
     private params: HttpParams;
     private accessPointUrlProd = 'https://buscadoronline-back.azurewebsites.net/api';
     private accessPointUrlLocal = 'https://localhost:5001/api';
@@ -29,26 +28,34 @@ export class CadastroService {
     EnviarSolicitacaoDaLoja(product): Observable<any> {
         console.log(product);
 
-        return this.http.post(this.accessPointUrlProd + '/Cadastro/SolicitarCadastro',
+        return this.http.post(this.accessPointUrlLocal + '/Cadastro/SolicitarCadastro',
             JSON.stringify(product), httpOptionsJson);
     }
 
-    AprovarCadastroDoMotorista(obj: import("../models/AprovacaoRequest").AprovacaoRequest): any {
-        throw new Error("Method not implemented.");
-    }
+    AprovarCadastroDoLojista(product): Observable<any> {
+        console.log(product);
+        return this.http.post(this.accessPointUrlLocal + '/Cadastro/AprovarCadastro',
+          JSON.stringify(product), httpOptionsJson);
+      }
 
     BuscarCadastrosPendentes(): Observable<any> {
-        return this.http.get(this.accessPointUrlProd + '/Cadastro/ListarCadastrosPendentes')
+        return this.http.get(this.accessPointUrlLocal + '/Cadastro/ListarCadastrosPendentes')
             .pipe(map(this.extractData));
     }
 
     BuscarCadastro(nome: string, email: string): Observable<any> {
-        return this.http.get(this.accessPointUrlProd + '/Cadastro/ObterCadastro', {
+        return this.http.get(this.accessPointUrlLocal + '/Cadastro/ObterCadastro', {
         params: {
             Nome: nome,
             Email: email
           }
         }).pipe(map(this.extractData));
+    }
+
+    CadastrarCliente(data: any): Observable<any> {
+        console.log(data);
+        return this.http.post(this.accessPointUrlLocal + '/Cliente/Cadastro',
+          JSON.stringify(data), httpOptionsJson);
     }
 
     private handleError<T>(operation = 'operation', result?: T) {

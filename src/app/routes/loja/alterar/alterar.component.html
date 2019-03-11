@@ -1,0 +1,91 @@
+<div class="content-heading">
+    <div>Cadastro da Loja
+        <small>Alteração de Cadastro do Lojista</small>
+    </div>
+</div>
+
+<div class="card card-default">
+    <div class="card-header">Dados Cadastrais</div>
+    <div class="card-body">
+        <form [formGroup]="solicitacaoForm" class="form-validate form-horizontal" (submit)="submitForm($event, solicitacaoForm.value)" novalidate="">
+            <fieldset>
+                <div class="col-md-12">
+                    <div class="form-row">
+                        <div class="col-lg-4 mb-4">
+                            <label>Nome</label>
+                            <input class="form-control" type="text" formControlName="Nome"
+                                [formControl]="solicitacaoForm.controls['Nome']" placeholder="Nome" />
+                            <span class="text-danger"
+                                *ngIf="solicitacaoForm.controls['Nome'].hasError('required') && (solicitacaoForm.controls['Nome'].dirty || solicitacaoForm.controls['Nome'].touched)">Campo
+                                Obrigatório</span>
+                        </div>
+                        <div class="col-lg-4 mb-4">
+                            <label>Email</label>
+                            <input class="form-control" type="text" formControlName="Email"
+                                [formControl]="solicitacaoForm.controls['Email']" placeholder="Email" />
+                            <span class="text-danger"
+                                *ngIf="solicitacaoForm.controls['Email'].hasError('required') && (solicitacaoForm.controls['Email'].dirty || solicitacaoForm.controls['Email'].touched)">Campo
+                                Obrigatório</span>
+                        </div>
+                        <div class="col-lg-4 mb-4">
+                            <label>Telefone</label>
+                            <input class="form-control" type="text" formControlName="Telefone"
+                                [formControl]="solicitacaoForm.controls['Telefone']" placeholder="Telefone" />
+                            <span class="text-danger"
+                                *ngIf="solicitacaoForm.controls['Telefone'].hasError('required') && (solicitacaoForm.controls['Telefone'].dirty || solicitacaoForm.controls['Telefone'].touched)">Campo
+                                Obrigatório</span>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="col-lg-3 mb-3">
+                            <label>CEP</label>
+                            <input class="form-control" type="text" formControlName="Cep"
+                                [formControl]="solicitacaoForm.controls['Cep']" placeholder="CEP" />
+                            <span class="text-danger"
+                                *ngIf="solicitacaoForm.controls['Cep'].hasError('required') && (solicitacaoForm.controls['Cep'].dirty || solicitacaoForm.controls['Cep'].touched)">Campo
+                                Obrigatório</span>
+                        </div>
+                        <div class="col-lg-6 mb-3">
+                            <label>Rua</label>
+                            <input class="form-control" type="text" formControlName="Rua"
+                                [formControl]="solicitacaoForm.controls['Rua']" placeholder="Rua" />
+                            <span class="text-danger"
+                                *ngIf="solicitacaoForm.controls['Rua'].hasError('required') && (solicitacaoForm.controls['Rua'].dirty || solicitacaoForm.controls['Rua'].touched)">Campo
+                                Obrigatório</span>
+                        </div>
+                        <div class="col-lg-3 mb-3">
+                            <label>Número</label>
+                            <input class="form-control" type="text" formControlName="Numero"
+                                [formControl]="solicitacaoForm.controls['Numero']" placeholder="Numero" />
+                            <span class="text-danger"
+                                *ngIf="solicitacaoForm.controls['Numero'].hasError('required') && (solicitacaoForm.controls['Numero'].dirty || solicitacaoForm.controls['Numero'].touched)">Campo
+                                Obrigatório</span>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="col-lg-6 mb-3">
+                            <label>Bairro</label>
+                            <input class="form-control" type="text" formControlName="Bairro"
+                                [formControl]="solicitacaoForm.controls['Bairro']" placeholder="Bairro" />
+                            <span class="text-danger"
+                                *ngIf="solicitacaoForm.controls['Bairro'].hasError('required') && (solicitacaoForm.controls['Bairro'].dirty || solicitacaoForm.controls['Bairro'].touched)">Campo
+                                Obrigatório</span>
+                        </div>
+                        <div class="col-lg-3 mb-3">
+                            <label>Cidade</label>
+                            <input class="form-control" type="text" formControlName="Cidade"
+                                [formControl]="solicitacaoForm.controls['Cidade']" placeholder="Cidade" />
+                            <span class="text-danger"
+                                *ngIf="solicitacaoForm.controls['Cidade'].hasError('required') && (solicitacaoForm.controls['Cidade'].dirty || solicitacaoForm.controls['Cidade'].touched)">Campo
+                                Obrigatório</span>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary" type="submit">Enviar Formulario</button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+<div class="content-heading">
+    Visualizar Cotas da Lojas
+</div>
+
+<div class="row">
+    <div class="col-lg-4 col-sm-6" *ngFor="let p of cadastros;">
+        <div class="card card-default">
+            <div class="card-header">
+                <a class="float-right text-muted" (click)="favContact1=!favContact1">
+                    <em class="fa" [ngClass]="favContact1 ? 'fa-star text-warning' : 'fa-star-o'"></em>
+                </a>
+            </div>
+            <div class="card-body text-center">
+                <img class="mb-2 img-fluid rounded-circle thumb64" src="assets/img/user/02.jpg" alt="Contact" />
+                <h4>{{p.nome}}</h4>
+            </div>
+            <div class="card-footer d-flex">
+                <div>
+                    <button type="button" class="btn btn-xs btn-primary" (click)="InativarLoja(p)">Inativar
+                        Loja</button>
+                </div>
+                <div class="ml-auto">
+                    <button type="button" class="btn btn-xs btn-secondary" (click)="AlterarLoja(p)">Alterar
+                        Loja</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -19,15 +19,15 @@ export class SolicitacaoComponent implements OnInit {
 
     constructor(private fb: FormBuilder, private router: Router, private service: CadastroService) {
         this.solicitacaoForm = this.fb.group({
-            'Nome': [null, Validators.compose([Validators.required, Validators.minLength(5)])],
-            'Telefone': [null, Validators.compose([Validators.required, CustomValidators.number])],
-            'Email': [null, Validators.compose([Validators.required, CustomValidators.email])],
-            'Cep': [null, Validators.compose([Validators.required, CustomValidators.numer,
+            Nome: [null, Validators.compose([Validators.required, Validators.minLength(5)])],
+            Telefone: [null, Validators.compose([Validators.required, CustomValidators.number])],
+            Email: [null, Validators.compose([Validators.required, CustomValidators.email])],
+            Cep: [null, Validators.compose([Validators.required, CustomValidators.numer,
             Validators.minLength(8), Validators.maxLength(8)])],
-            'Rua': [null, Validators.compose([Validators.required, Validators.minLength(5), Validators.maxLength(150)])],
-            'Numero': [null, Validators.compose([Validators.required, CustomValidators.number])],
-            'Bairro': [null, Validators.compose([Validators.required, Validators.minLength(5), Validators.maxLength(150)])],
-            'Cidade': [null, Validators.compose([Validators.required, Validators.minLength(5), Validators.maxLength(150)])],
+            Rua: [null, Validators.compose([Validators.required, Validators.minLength(5), Validators.maxLength(150)])],
+            Numero: [null, Validators.compose([Validators.required, CustomValidators.number])],
+            Bairro: [null, Validators.compose([Validators.required, Validators.minLength(5), Validators.maxLength(150)])],
+            Cidade: [null, Validators.compose([Validators.required, Validators.minLength(5), Validators.maxLength(150)])],
         });
     }
 

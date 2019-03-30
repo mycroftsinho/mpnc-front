@@ -42,10 +42,15 @@ export class LoginComponent implements OnInit {
     RealizarLogin(form: any) {
         this.service.RealizarLogin(form)
             .subscribe(response => {
-                const token = response.accessToken;
-                localStorage.setItem('jwt', token);
-                this.invalidLogin = false;
-                this.router.navigate(['/home']);
+                if (response != null && response.authenticated === true) {
+                    const token = response.accessToken;
+                    localStorage.setItem('jwt', token);
+                    this.invalidLogin = false;
+                    this.router.navigate(['/home']);
+                } else {
+                    this.invalidLogin = true;
+                    this.sweetalertError('Dados inválidos.');
+                }
             }, err => {
                 this.sweetalertError('Não foi possível realizar a autenticação. Tente mais tarde!');
             });

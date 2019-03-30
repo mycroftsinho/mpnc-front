@@ -29,7 +29,7 @@ export const routes = [
             { path: 'cadastro', loadChildren: './cadastro/cadastro.module#CadastroModule' },
             { path: 'cliente', loadChildren: './cliente/cliente.module#ClienteModule' },
             { path: 'cota', loadChildren: './cota/cota.module#CotaModule' },
-            { path: 'loja', loadChildren: './loja/loja.module#LojaModule' }
+            { path: 'loja', loadChildren: './loja/loja.module#LojaModule' },
         ]
     },
 

@@ -6,10 +6,11 @@ import { FileUploadModule } from 'ng2-file-upload';
 import { SharedModule } from '../../shared/shared.module';
 import { AlterarComponent } from './alterar/alterar.component';
 import { ListarComponent } from './listar/listar.component';
+import { AuthGuard } from '../../services/models/AuthGuard';
 
 const routes: Routes = [
-   { path: 'alterar', component: AlterarComponent },
-   { path: 'listar', component: ListarComponent }
+   { path: 'alterar', component: AlterarComponent, canActivate: [AuthGuard] },
+   { path: 'listar', component: ListarComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({
@@ -25,6 +26,7 @@ const routes: Routes = [
     ],
     exports: [
         RouterModule
-    ]
+    ],
+    providers: [AuthGuard]
 })
 export class LojaModule { }

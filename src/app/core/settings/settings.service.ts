@@ -12,7 +12,7 @@ export class SettingsService {
         // User Settings
         // -----------------------------------
         this.user = {
-            name: 'John',
+            name: 'Admin',
             job: 'ng-developer',
             picture: 'assets/img/user/02.jpg'
         };
@@ -20,8 +20,8 @@ export class SettingsService {
         // App Settings
         // -----------------------------------
         this.app = {
-            name: 'Buscador Online',
-            description: 'Angular Bootstrap Admin Template',
+            name: 'Menor Preço na Cidade',
+            description: 'O seu aplicativo perfeito.',
             year: ((new Date()).getFullYear())
         };
 

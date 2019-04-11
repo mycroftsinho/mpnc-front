@@ -2,20 +2,20 @@
     <div class="block-center mt-4 wd-xl">
         <!-- START card-->
         <div class="card card-flat">
-            <div class="card-header text-center bg-dark">
-                <a href="#">
-                    <img class="block-center rounded" src="assets/img/logo.png" alt="Image" />
-                </a>
-            </div>
             <div class="card-body">
-                <p class="text-center py-2">SIGNUP TO GET INSTANT ACCESS.</p>
+                <p class="text-center">
+                    <a href="#"><img class="block-center rounded" src="assets/img/newlogo.png" alt="Image" /></a>
+                </p>
+
+                <p class="text-center font-weight-bold py-2">Informe os dados abaixo para realizar o cadastro.</p>
+
                 <form [formGroup]="valForm" class="form-validate mb-3" role="form" name="registerForm" novalidate=""
                     (submit)="submitForm($event, valForm.value)">
+                
                     <div class="form-group">
-                        <label class="text-muted mb-1">UserName</label>
                         <div class="input-group with-focus">
                             <input class="form-control border-right-0" type="text" name="useranme"
-                                placeholder="Nome de Usuario" autocomplete="off" formControlName="username"
+                                placeholder="Nome de Usuário" autocomplete="off" formControlName="username"
                                 required="" />
                             <div class="input-group-append">
                                 <span class="input-group-text text-muted bg-transparent border-left-0">
@@ -25,13 +25,13 @@
                         </div>
                         <div class="text-danger"
                             *ngIf="valForm.controls['username'].hasError('required') && (valForm.controls['username'].dirty || valForm.controls['username'].touched)">
-                            This field is required</div>
+                            Campo Obrogatório</div>
                     </div>
+                
                     <div class="form-group">
-                        <label class="text-muted mb-1">Email address</label>
                         <div class="input-group with-focus">
                             <input class="form-control border-right-0" type="email" name="account_email"
-                                placeholder="Enter email" autocomplete="off" formControlName="email" required="" />
+                                placeholder="Email" autocomplete="off" formControlName="email" required="" />
                             <div class="input-group-append">
                                 <span class="input-group-text text-muted bg-transparent border-left-0">
                                     <em class="fa fa-envelope"></em>
@@ -40,16 +40,16 @@
                         </div>
                         <div class="text-danger"
                             *ngIf="valForm.controls['email'].hasError('required') && (valForm.controls['email'].dirty || valForm.controls['email'].touched)">
-                            This field is required</div>
+                            Campo Obrigatório</div>
                         <div class="text-danger"
                             *ngIf="valForm.controls['email'].hasError('email') && (valForm.controls['email'].dirty || valForm.controls['email'].touched)">
-                            This field must be a valid email address</div>
+                            Digite um Email válido</div>
                     </div>
+                
                     <div class="form-group">
-                        <label class="text-muted mb-1">Password</label>
                         <div class="input-group with-focus">
                             <input class="form-control border-right-0" id="id-password" type="password" name="password"
-                                formControlName="password" [formControl]="valForm.get('password')" />
+                                placeholder="Senha" formControlName="password" [formControl]="valForm.get('password')" />
                             <div class="input-group-append">
                                 <span class="input-group-text text-muted bg-transparent border-left-0">
                                     <em class="fa fa-lock"></em>
@@ -58,16 +58,16 @@
                         </div>
                         <div class="text-danger"
                             *ngIf="valForm.get('password').hasError('required') && (valForm.get('password').dirty || valForm.get('password').touched)">
-                            This field is required</div>
+                            Campo Obrogatório</div>
                         <div class="text-danger"
                             *ngIf="valForm.get('password').hasError('pattern') && (valForm.get('password').dirty || valForm.get('password').touched)">
                             Input should match 'a-zA-Z0-9' and 6-10 length</div>
                     </div>
+                
                     <div class="form-group">
-                        <label class="text-muted mb-1">Retype Password</label>
                         <div class="input-group with-focus">
                             <input class="form-control border-right-0" type="password" name="confirmPassword"
-                                formControlName="confirmPassword" [formControl]="valForm.get('confirmPassword')" />
+                                placeholder="Repita a Senha" formControlName="confirmPassword" [formControl]="valForm.get('confirmPassword')" />
                             <div class="input-group-append">
                                 <span class="input-group-text text-muted bg-transparent border-left-0">
                                     <em class="fa fa-lock"></em>
@@ -76,28 +76,28 @@
                         </div>
                         <div class="text-danger"
                             *ngIf="valForm.get('confirmPassword').hasError('required') && (valForm.get('confirmPassword').dirty || valForm.get('confirmPassword').touched)">
-                            This field is required</div>
-                        <div class="text-danger" *ngIf="valForm.get('confirmPassword').hasError('equalTo')">Password
-                            does Not match</div>
+                            Campo Obrogatório</div>
+                        <div class="text-danger" *ngIf="valForm.get('confirmPassword').hasError('equalTo')">A senha não é a mesma.</div>
                     </div>
+                
                     <div class="clearfix">
                         <div class="checkbox c-checkbox float-left mt0">
                             <label>
                                 <input type="checkbox" required="" name="account_agreed"
                                     formControlName="accountagreed" />
-                                <span class="fa fa-check"></span>I agree with the
-                                <a href="#">terms</a>
+                                <span class="fa fa-check"></span>Eu concordo com os <a href="#">termos</a>
                             </label>
                         </div>
                     </div>
+                
                     <span class="text-danger"
-                        *ngIf="valForm.controls['accountagreed'].hasError('required') && (valForm.controls['accountagreed'].dirty || valForm.controls['accountagreed'].touched)">You
-                        must agree the terms</span>
-                    <button class="btn btn-block btn-primary mt-3" type="submit">Create account</button>
+                        *ngIf="valForm.controls['accountagreed'].hasError('required') && (valForm.controls['accountagreed'].dirty || valForm.controls['accountagreed'].touched)">
+                        Você deve concordar com os termos</span>
+                    <button class="btn btn-block btn-primary mt-3" type="submit">Criar conta</button>
                 </form>
-                <!-- <div class="alert alert-danger text-center"></div> -->
-                <p class="pt-3 text-center">Have an account?</p>
-                <a class="btn btn-block btn-secondary" [routerLink]="'/login'">Signup</a>
+
+                <p class="pt-3 text-center">Já tenho uma conta?</p>
+                <a class="btn btn-block btn-warning" [routerLink]="'/login'">Login</a>
             </div>
         </div>
         <!-- END card-->

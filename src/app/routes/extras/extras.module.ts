@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { TreeModule } from 'angular-tree-component';
 import { AgmCoreModule } from '@agm/core';
-import { NgxSelectModule } from 'ngx-select-ex'
+import { NgxSelectModule } from 'ngx-select-ex';
 
 import { SharedModule } from '../../shared/shared.module';
 

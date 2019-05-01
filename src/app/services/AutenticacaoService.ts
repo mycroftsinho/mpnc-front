@@ -20,13 +20,13 @@ export class AutenticacaoService {
 
     RealizarLogin(data: any): Observable<any> {
         console.log(data);
-        return this.http.post(this.accessPointUrlLocal + '/Account',
+        return this.http.post(this.accessPointUrlProd + '/Account',
             JSON.stringify(data), httpOptionsJson);
     }
 
     RegistrarUsuario(data: any): Observable<any> {
         console.log(data);
-        return this.http.post(this.accessPointUrlLocal + '/Account/Registrar',
+        return this.http.post(this.accessPointUrlProd + '/Account/Registrar',
             JSON.stringify(data), httpOptionsJson);
     }
 

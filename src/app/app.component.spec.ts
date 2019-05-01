@@ -1,41 +1,32 @@
-/* tslint:disable:no-unused-variable */
+import { TestBed, async } from '@angular/core/testing';
 
-import { TestBed, async} from '@angular/core/testing';
 import { AppComponent } from './app.component';
-import { TranslateModule } from '@ngx-translate/core';
 
-import { CoreModule } from './core/core.module';
-import { LayoutModule } from './layout/layout.module';
-import { SharedModule } from './shared/shared.module';
-import { RoutesModule } from './routes/routes.module';
-import { APP_BASE_HREF } from '@angular/common';
+describe('AppComponent', () => {
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [
+        AppComponent
+      ],
+    }).compileComponents();
+  }));
 
-describe('App: Ng2angle', () => {
-    beforeEach(() => {
+  it('should create the app', async(() => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.debugElement.componentInstance;
+    expect(app).toBeTruthy();
+  }));
 
-        jasmine.DEFAULT_TIMEOUT_INTERVAL = 60000;
+  it(`should have as title 'app'`, async(() => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.debugElement.componentInstance;
+    expect(app.title).toEqual('app');
+  }));
 
-        TestBed.configureTestingModule({
-            declarations: [
-                AppComponent
-            ],
-            imports: [
-                TranslateModule.forRoot(),
-                CoreModule,
-                LayoutModule,
-                SharedModule,
-                RoutesModule
-            ],
-            providers: [
-                { provide: APP_BASE_HREF, useValue: '/' }
-            ]
-        });
-    });
-
-    it('should create the app', async(() => {
-        let fixture = TestBed.createComponent(AppComponent);
-        let app = fixture.debugElement.componentInstance;
-        expect(app).toBeTruthy();
-    }));
-
+  it('should render title in a h1 tag', async(() => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('h1').textContent).toContain('Welcome to app!!');
+  }));
 });

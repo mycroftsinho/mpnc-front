@@ -1,6 +1,10 @@
-import { Component, HostBinding, OnInit } from '@angular/core';
-
-import { SettingsService } from './core/settings/settings.service';
+import { Component, OnInit, Inject, Renderer, ElementRef, ViewChild } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
+import { Subscription } from 'rxjs/Subscription';
+import 'rxjs/add/operator/filter';
+import { DOCUMENT } from '@angular/platform-browser';
+import { LocationStrategy, PlatformLocation, Location } from '@angular/common';
+import { NavbarComponent } from './shared/navbar/navbar.component';
 
 @Component({
     selector: 'app-root',
@@ -8,24 +12,32 @@ import { SettingsService } from './core/settings/settings.service';
     styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+    private _router: Subscription;
+    @ViewChild(NavbarComponent) navbar: NavbarComponent;
 
-    @HostBinding('class.layout-fixed') get isFixed() { return this.settings.getLayoutSetting('isFixed'); };
-    @HostBinding('class.aside-collapsed') get isCollapsed() { return this.settings.getLayoutSetting('isCollapsed'); };
-    @HostBinding('class.layout-boxed') get isBoxed() { return this.settings.getLayoutSetting('isBoxed'); };
-    @HostBinding('class.layout-fs') get useFullLayout() { return this.settings.getLayoutSetting('useFullLayout'); };
-    @HostBinding('class.hidden-footer') get hiddenFooter() { return this.settings.getLayoutSetting('hiddenFooter'); };
-    @HostBinding('class.layout-h') get horizontal() { return this.settings.getLayoutSetting('horizontal'); };
-    @HostBinding('class.aside-float') get isFloat() { return this.settings.getLayoutSetting('isFloat'); };
-    @HostBinding('class.offsidebar-open') get offsidebarOpen() { return this.settings.getLayoutSetting('offsidebarOpen'); };
-    @HostBinding('class.aside-toggled') get asideToggled() { return this.settings.getLayoutSetting('asideToggled'); };
-    @HostBinding('class.aside-collapsed-text') get isCollapsedText() { return this.settings.getLayoutSetting('isCollapsedText'); };
-
-    constructor(public settings: SettingsService) { }
-
+    constructor( private renderer : Renderer, private router: Router, @Inject(DOCUMENT,) private document: any, private element : ElementRef, public location: Location) {}
     ngOnInit() {
-        document.addEventListener('click', e => {
-            const target = e.target as HTMLElement;
-            if (target.tagName === 'A') e.preventDefault();
-        })
+        var navbar : HTMLElement = this.element.nativeElement.children[0].children[0];
+        this._router = this.router.events.filter(event => event instanceof NavigationEnd).subscribe((event: NavigationEnd) => {
+            if (window.outerWidth > 991) {
+                window.document.children[0].scrollTop = 0;
+            }else{
+                window.document.activeElement.scrollTop = 0;
+            }
+            this.navbar.sidebarClose();
+
+            this.renderer.listenGlobal('window', 'scroll', (event) => {
+                const number = window.scrollY;
+                var _location = this.location.path();
+                _location = _location.split('/')[2];
+
+                if (number > 150 || window.pageYOffset > 150) {
+                    navbar.classList.remove('navbar-transparent');
+                } else if (_location !== 'login' && this.location.path() !== '/nucleoicons') {
+                    // remove logic
+                    navbar.classList.add('navbar-transparent');
+                }
+            });
+        });
     }
 }

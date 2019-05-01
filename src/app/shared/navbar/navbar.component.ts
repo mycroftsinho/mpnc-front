@@ -9,8 +9,8 @@ import { Location, LocationStrategy, PathLocationStrategy } from '@angular/commo
 export class NavbarComponent implements OnInit {
     private toggleButton: any;
     private sidebarVisible: boolean;
-    private logout = true;
-    private user: any;
+    public logout = true;
+    public user: any;
 
     constructor(public location: Location, private element : ElementRef) {
         this.sidebarVisible = false;

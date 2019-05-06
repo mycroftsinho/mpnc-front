@@ -1,5 +1,5 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
-import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { Location } from '@angular/common';
 
 @Component({
     selector: 'app-navbar',
@@ -11,8 +11,10 @@ export class NavbarComponent implements OnInit {
     private sidebarVisible: boolean;
     public logout = true;
     public user: any;
+    public lojista: any;
+    public administrador: any;
 
-    constructor(public location: Location, private element : ElementRef) {
+    constructor(public location: Location, private element: ElementRef) {
         this.sidebarVisible = false;
     }
 
@@ -21,11 +23,14 @@ export class NavbarComponent implements OnInit {
         this.toggleButton = navbar.getElementsByClassName('navbar-toggler')[0];
         this.logout = localStorage.getItem('jwt') == null || localStorage.getItem('jwt') === '';
         this.user = localStorage.getItem('user');
+        var perfil = localStorage.getItem('perfil');
+        this.administrador = perfil === 'Administrador';
+        this.lojista = perfil === 'Lojista';
     }
     sidebarOpen() {
         const toggleButton = this.toggleButton;
         const html = document.getElementsByTagName('html')[0];
-        setTimeout(function(){
+        setTimeout(function () {
             toggleButton.classList.add('toggled');
         }, 500);
         html.classList.add('nav-open');

@@ -4,25 +4,32 @@
       <div ngbDropdown *ngIf="!logout">
         <a class="dropdown-toggle" ngbDropdownToggle>
           <span class="button-bar"></span>
-          <span class="button-bar"></span>
-          <span class="button-bar"></span>
+          Ações do Usuário
         </a>
-        <div ngbDropdownMenu>
-          <a class="dropdown-header">Dropdown header</a>
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
+        <div ngbDropdownMenu *ngIf="administrador">
+          <a class="dropdown-header">Perfil Administrador</a>
+          <a class="dropdown-item" [routerLink]="['/listarcota']">Definir Cotas</a>
+          <a class="dropdown-item" href="#">Aprovar Solicitações</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Separated link</a>
+          <a class="dropdown-item" href="#">Visualizar Lojas</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">One more separated link</a>
+          <a class="dropdown-item" href="#">Alterar Informações</a>
+        </div>
+        <div ngbDropdownMenu *ngIf="lojista">
+          <a class="dropdown-header">Perfil Lojista</a>
+          <a class="dropdown-item" href="#">Cadastrar Loja</a>
+          <a class="dropdown-item" href="#">Cadastrar Produtos</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Alterar Informações</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Visualizar Dados</a>
         </div>
       </div>
     </div>
     <div class="navbar-translate">
-      <a *ngIf="!logout" class="navbar-brand" placement="bottom">
+      <!-- <a *ngIf="!logout" class="navbar-brand" placement="bottom">
         Ações do Usuário
-      </a>
+      </a> -->
       <a class="navbar-brand" [routerLink]="['/index']" placement="bottom">
         Home
       </a>
@@ -37,7 +44,7 @@
     <div class="collapse navbar-collapse" data-nav-image="assets/img/blurred-image-1.jpg" data-color="orange">
       <ul class="navbar-nav ml-auto">
         <li *ngIf="logout" class="nav-item">
-          <a class="nav-link btn btn-neutral" href="/login">
+          <a class="nav-link btn btn-neutral" [routerLink]="['/login']">
             <i class="now-ui-icons users_circle-08">&nbsp;</i>
             <p>Entrar/Registrar</p>
           </a>

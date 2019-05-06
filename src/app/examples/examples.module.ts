@@ -11,6 +11,13 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ExamplesComponent } from './examples.component';
+import { ListarCotaComponent } from './listarcota/listarcota.component';
+import { DefinirCotaComponent } from './definircota/definircota.component';
+import { AprovarCadastroComponent } from './aprovarcadastro/aprovarcadastro.component';
+import { SolicitarCadastroComponent } from './solicitarcadastro/solicitarcadastro.component';
+import { VisualizarCadastroComponent } from './visualizarcadastro/visualizarcadastro.component';
+import { ListarLojaComponent } from './listarloja/listarloja.component';
+import { AlterarLojaComponent } from './alterarloja/alterarloja.component';
 
 @NgModule({
     imports: [
@@ -29,7 +36,14 @@ import { ExamplesComponent } from './examples.component';
         LoginComponent,
         RegisterComponent,
         ExamplesComponent,
-        ProfileComponent
+        ProfileComponent,
+        ListarCotaComponent,
+        DefinirCotaComponent,
+        AprovarCadastroComponent,
+        SolicitarCadastroComponent,
+        VisualizarCadastroComponent,
+        ListarLojaComponent,
+        AlterarLojaComponent
     ]
 })
 export class ExamplesModule { }

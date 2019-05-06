@@ -3,21 +3,31 @@ import { CommonModule, } from '@angular/common';
 import { BrowserModule  } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 
+import { NucleoiconsComponent } from './components/nucleoicons/nucleoicons.component';
 import { ComponentsComponent } from './components/components.component';
-import { LandingComponent } from './examples/landing/landing.component';
 import { LoginComponent } from './examples/login/login.component';
 import { RegisterComponent } from './examples/register/register.component';
-import { ProfileComponent } from './examples/profile/profile.component';
-import { NucleoiconsComponent } from './components/nucleoicons/nucleoicons.component';
+import { ListarCotaComponent } from './examples/listarcota/listarcota.component';
+import { DefinirCotaComponent } from './examples/definircota/definircota.component';
+import { AprovarCadastroComponent } from './examples/aprovarcadastro/aprovarcadastro.component';
+import { SolicitarCadastroComponent } from './examples/solicitarcadastro/solicitarcadastro.component';
+import { VisualizarCadastroComponent } from './examples/visualizarcadastro/visualizarcadastro.component';
+import { ListarLojaComponent } from './examples/listarloja/listarloja.component';
+import { AlterarLojaComponent } from './examples/alterarloja/alterarloja.component';
 
-const routes: Routes =[
+const routes: Routes = [
     { path: '', redirectTo: 'index', pathMatch: 'full' },
     { path: 'index',                component: ComponentsComponent },
     { path: 'nucleoicons',          component: NucleoiconsComponent },
-    { path: 'examples/landing',     component: LandingComponent },
     { path: 'login',                component: LoginComponent },
     { path: 'register',             component: RegisterComponent },
-    { path: 'examples/profile',     component: ProfileComponent }
+    { path: 'listarCota',           component: ListarCotaComponent },
+    { path: 'definircota',          component: DefinirCotaComponent },
+    { path: 'aprovarcadastro',      component: AprovarCadastroComponent },
+    { path: 'solicitarcadastro',    component: SolicitarCadastroComponent },
+    { path: 'visualizarcadastro',   component: VisualizarCadastroComponent },
+    { path: 'listarlojas',          component: ListarLojaComponent },
+    { path: 'alterarloja',          component: AlterarLojaComponent }
 ];
 
 @NgModule({

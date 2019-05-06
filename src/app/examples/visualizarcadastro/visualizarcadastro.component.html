@@ -1,0 +1,59 @@
+<div class="content-heading">
+    <div>Cadastro
+        <small>Cadastro do Motorista</small>
+    </div>
+</div>
+
+<div class="card card-default">
+    <div class="card-header">Dados Cadastrais</div>
+    <div class="card-body">
+        <form class="form-horizontal">
+            <fieldset>
+                <div class="col-md-12">
+                    <div class="form-row">
+                        <div class="col-lg-4 mb-4">
+                            <label>Nome</label>
+                            <input class="form-control" type="text" readonly="readonly" value="{{cadastro.nome}}" />
+                        </div>
+                        <div class="col-lg-4 mb-4">
+                            <label>Email</label>
+                            <input class="form-control" type="text" readonly="readonly" value="{{cadastro.email}}" />
+                        </div>
+                        <div class="col-lg-4 mb-4">
+                            <label>Telefone</label>
+                            <input class="form-control" type="text" readonly="readonly" value="{{cadastro.telefone}}" />
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="col-lg-3 mb-3">
+                            <label>CEP</label>
+                            <input class="form-control" type="text" readonly="readonly" value="{{cadastro.cep}}" />
+                        </div>
+                        <div class="col-lg-6 mb-3">
+                            <label>Rua</label>
+                            <input class="form-control" type="text" readonly="readonly" value="{{cadastro.rua}}" />
+                        </div>
+                        <div class="col-lg-3 mb-3">
+                            <label>Número</label>
+                            <input class="form-control" type="text" readonly="readonly" value="{{cadastro.numero}}" />
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="col-lg-6 mb-3">
+                            <label>Bairro</label>
+                            <input class="form-control" type="text" readonly="readonly" value="{{cadastro.bairro}}" />
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <button class="mb-1 mr-1 btn btn-success left" type="button" (click)="AprovarCadastro(true)">Aceitar Cadastro</button>
+                        <button class="mb-1 mr-1 btn btn-danger" type="button" (click)="AprovarCadastro(false)">Recusar Cadastro</button>
+                        <button class="mb-1 mr-1 btn btn-default" type="button" (click)="VoltarParaVisualizcao()">Voltar</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>

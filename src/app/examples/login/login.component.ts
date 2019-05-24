@@ -45,9 +45,9 @@ export class LoginComponent implements OnInit {
         this.service.RealizarLogin(form)
             .subscribe(response => {
                 if (response != null && response.authenticated === true) {
-                    localStorage.setItem('jwt', response.accessToken);
-                    localStorage.setItem('user', response.user);
-                    localStorage.setItem('perfil', response.perfil);
+                    localStorage.setItem('application-usertoken', response.accessToken);
+                    localStorage.setItem('application-infouser', response.user);
+                    localStorage.setItem('application-userprofile', response.perfil);
                     this.invalidLogin = false;
                     this.router.navigate(['/index']);
                 } else {
@@ -57,6 +57,10 @@ export class LoginComponent implements OnInit {
             }, err => {
                 alert('Não foi possível realizar a autenticação. Tente mais tarde!');
             });
+    }
+
+    Registrar() {
+        this.router.navigate(['/register']);
     }
 
     ngOnInit() {

@@ -10,9 +10,13 @@ export class NavbarComponent implements OnInit {
     private toggleButton: any;
     private sidebarVisible: boolean;
     public logout = true;
-    public user: any;
     public lojista: any;
     public administrador: any;
+
+    private token: string;
+    public user: string;
+    public perfil: string;
+
 
     constructor(public location: Location, private element: ElementRef) {
         this.sidebarVisible = false;
@@ -21,11 +25,13 @@ export class NavbarComponent implements OnInit {
     ngOnInit() {
         const navbar: HTMLElement = this.element.nativeElement;
         this.toggleButton = navbar.getElementsByClassName('navbar-toggler')[0];
-        this.logout = localStorage.getItem('jwt') == null || localStorage.getItem('jwt') === '';
-        this.user = localStorage.getItem('user');
-        var perfil = localStorage.getItem('perfil');
-        this.administrador = perfil === 'Administrador';
-        this.lojista = perfil === 'Lojista';
+        this.token = localStorage.getItem('application-usertoken');
+        this.user = localStorage.getItem('application-infouser');
+        this.perfil = localStorage.getItem('application-userprofile');
+
+        this.logout = this.perfil == null || this.perfil === '';
+        this.administrador = this.perfil === 'Administrador';
+        this.lojista = this.perfil === 'Lojista';
     }
     sidebarOpen() {
         const toggleButton = this.toggleButton;

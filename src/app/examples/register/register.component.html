@@ -1,62 +1,61 @@
-<div class="page-header" filter-color="gray">
+<div class="page-header" filter-color="orange">
     <div class="page-header-image" style="background-image:url(assets/img/login.jpg)"></div>
     <div class="container">
         <div class="col-md-4 content-center">
-            <div class="mr-auto">
-                <div class="card card-signup">
+            <div class="card card-login card-plain">
+                <form [formGroup]="registerForm" class="form" (submit)="submitForm($event, registerForm.value)">
                     <div class="header header-primary text-center">
                         <div class="">
                             <img src="assets/img/logo-full.png" alt="">
                         </div>
                     </div>
-                    <div class="card-body">
-                        <h4 class="card-title text-center" style="color: black;">Registrar</h4>
-                        <form [formGroup]="registerForm" class="form ng-untouched ng-pristine ng-valid"
-                            (submit)="submitForm($event, registerForm.value)">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="now-ui-icons users_circle-08"></i></span>
-                                </div>
-                                <input class="form-control" formControlName="username" placeholder="Nome" type="text">
+                    <div class="content">
+                        <div class="input-group form-group-no-border input-lg">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="now-ui-icons users_circle-08"></i></span>
                             </div>
-                            <div class="text-danger"
-                                *ngIf="registerForm.controls['username'].hasError('required') && (registerForm.controls['username'].dirty || registerForm.controls['username'].touched)">
-                                Campo Obrogatório
-                            </div>
+                            <input class="form-control" formControlName="username" placeholder="Nome" type="text">
+                        </div>
+                        <div class="text-danger"
+                            *ngIf="registerForm.controls['username'].hasError('required') && (registerForm.controls['username'].dirty || registerForm.controls['username'].touched)">
+                            Campo Obrogatório
+                        </div>
 
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="now-ui-icons ui-1_email-85"></i></span>
-                                </div>
-                                <input formControlName="email" class="form-control" placeholder="Email" type="email">
+                        <div class="input-group form-group-no-border input-lg">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="now-ui-icons ui-1_email-85"></i></span>
                             </div>
-                            <div class="text-danger"
-                                *ngIf="registerForm.controls['email'].hasError('required') && (registerForm.controls['email'].dirty || registerForm.controls['email'].touched)">
-                                Campo Obrigatório</div>
-                            <div class="text-danger"
-                                *ngIf="registerForm.controls['email'].hasError('email') && (registerForm.controls['email'].dirty || registerForm.controls['email'].touched)">
-                                Digite um Email válido</div>
+                            <input formControlName="email" class="form-control" placeholder="Email" type="email">
+                        </div>
+                        <div class="text-danger"
+                            *ngIf="registerForm.controls['email'].hasError('required') && (registerForm.controls['email'].dirty || registerForm.controls['email'].touched)">
+                            Campo Obrigatório</div>
+                        <div class="text-danger"
+                            *ngIf="registerForm.controls['email'].hasError('email') && (registerForm.controls['email'].dirty || registerForm.controls['email'].touched)">
+                            Digite um Email válido</div>
 
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="now-ui-icons text_caps-small"></i></span>
-                                </div>
-                                <input formControlName="password" class="form-control" placeholder="Senha"
-                                    type="password">
+                        <div class="input-group form-group-no-border input-lg">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="now-ui-icons text_caps-small"></i></span>
                             </div>
-                            <div class="text-danger"
-                                *ngIf="registerForm.get('password').hasError('required') && (registerForm.get('password').dirty || registerForm.get('password').touched)">
-                                Campo Obrogatório</div>
-                            <div class="text-danger"
-                                *ngIf="registerForm.get('password').hasError('pattern') && (registerForm.get('password').dirty || registerForm.get('password').touched)">
-                                Input should match 'a-zA-Z0-9' and 6-10 length</div>
+                            <input formControlName="password" class="form-control" placeholder="Senha" type="password">
+                        </div>
+                        <div class="text-danger"
+                            *ngIf="registerForm.get('password').hasError('required') && (registerForm.get('password').dirty || registerForm.get('password').touched)">
+                            Campo Obrogatório</div>
+                        <div class="text-danger"
+                            *ngIf="registerForm.get('password').hasError('pattern') && (registerForm.get('password').dirty || registerForm.get('password').touched)">
+                            Input should match 'a-zA-Z0-9' and 6-10 length</div>
 
-                            <div class="text-center">
-                                <button type="submit" class="btn btn-primary btn-round btn-lg">Registrar</button>
-                            </div>
-                        </form>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary btn-round btn-lg">Registrar</button>
+                        </div>
+
+                        <div class="text-center">
+                            <a href="/login" class="btn btn-default btn-round btn-lg">Voltar</a>
+                        </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>

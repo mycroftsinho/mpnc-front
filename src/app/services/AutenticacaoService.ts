@@ -31,7 +31,9 @@ export class AutenticacaoService {
     }
 
     logOut() {
-        localStorage.removeItem('jwt');
+        localStorage.removeItem('application-usertoken');
+        localStorage.removeItem('application-infouser');
+        localStorage.removeItem('application-userprofile');
      }
 
     private extractData(res: Response) {

@@ -26,14 +26,14 @@ export class CotaService {
     }
 
     BuscarCotas(): Observable<any> {
-        return this.http.get(this.accessPointUrlLocal + '/Cota/ListarCotas', httpOptionsJson)
+        return this.http.get(this.accessPointUrlProd + '/Cota/ListarCotas', httpOptionsJson)
             .pipe(map(this.extractData));
     }
 
     DefinirCota(product): Observable<any> {
         console.log(product);
 
-        return this.http.post(this.accessPointUrlLocal + '/Cota/DefinirCota',
+        return this.http.post(this.accessPointUrlProd + '/Cota/DefinirCota',
             JSON.stringify(product), httpOptionsJson);
     }
 }

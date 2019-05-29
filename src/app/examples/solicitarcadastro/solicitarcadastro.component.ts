@@ -16,15 +16,11 @@ export class SolicitarCadastroComponent implements OnInit {
 
     constructor(private fb: FormBuilder, private router: Router, private service: CadastroService) {
         this.solicitacaoForm = this.fb.group({
-            Nome: [null, Validators.compose([Validators.required, Validators.minLength(5)])],
-            Telefone: [null, Validators.compose([Validators.required])],
-            Email: [null, Validators.compose([Validators.required, Validators.email])],
-            Cep: [null, Validators.compose([Validators.required,
-            Validators.minLength(8), Validators.maxLength(8)])],
-            Rua: [null, Validators.compose([Validators.required, Validators.minLength(5), Validators.maxLength(150)])],
-            Numero: [null, Validators.compose([Validators.required])],
-            Bairro: [null, Validators.compose([Validators.required, Validators.minLength(5), Validators.maxLength(150)])],
-            Cidade: [null, Validators.compose([Validators.required, Validators.minLength(5), Validators.maxLength(150)])],
+            nome: [null, Validators.compose([Validators.required, Validators.minLength(5)])],
+            empresa: [null, Validators.compose([Validators.required, Validators.minLength(5)])],
+            cnpj: [null, Validators.compose([Validators.required])],
+            telefone: [null, Validators.compose([Validators.required])],
+            email: [null, Validators.compose([Validators.required, Validators.email])]
         });
     }
 
@@ -43,7 +39,8 @@ export class SolicitarCadastroComponent implements OnInit {
     SubmeterCadastroDaLoja() {
         this.service.EnviarSolicitacaoDaLoja(this.solicitacaoForm.value)
             .subscribe((result) => {
-                this.router.navigate(['/index']);
+                alert('Solicitação enviada com sucesso! Aguarde o contato dos nossos representantes.');
+                this.router.navigate([this.router.url]);
             }, (err) => {
                 console.log('Teste2');
                 if (err.status === 404) {

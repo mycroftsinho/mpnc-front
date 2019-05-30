@@ -28,23 +28,23 @@ export class CadastroService {
     EnviarSolicitacaoDaLoja(product): Observable<any> {
         console.log(product);
 
-        return this.http.post(this.accessPointUrlLocal + '/Cadastro/SolicitarCadastro',
+        return this.http.post(this.accessPointUrlProd + '/Cadastro/SolicitarCadastro',
             JSON.stringify(product), httpOptionsJson);
     }
 
     AprovarCadastroDoLojista(product): Observable<any> {
         console.log(product);
-        return this.http.post(this.accessPointUrlLocal + '/Cadastro/AprovarCadastro',
+        return this.http.post(this.accessPointUrlProd + '/Cadastro/AprovarCadastro',
           JSON.stringify(product), httpOptionsJson);
       }
 
     BuscarCadastrosPendentes(): Observable<any> {
-        return this.http.get(this.accessPointUrlLocal + '/Cadastro/ListarCadastrosPendentes')
+        return this.http.get(this.accessPointUrlProd + '/Cadastro/ListarCadastrosPendentes')
             .pipe(map(this.extractData));
     }
 
     BuscarCadastro(nome: string, email: string): Observable<any> {
-        return this.http.get(this.accessPointUrlLocal + '/Cadastro/ObterCadastro', {
+        return this.http.get(this.accessPointUrlProd + '/Cadastro/ObterCadastro', {
         params: {
             Nome: nome,
             Email: email
@@ -54,7 +54,7 @@ export class CadastroService {
 
     CadastrarCliente(data: any): Observable<any> {
         console.log(data);
-        return this.http.post(this.accessPointUrlLocal + '/Cliente/Cadastro',
+        return this.http.post(this.accessPointUrlProd + '/Cliente/Cadastro',
           JSON.stringify(data), httpOptionsJson);
     }
 

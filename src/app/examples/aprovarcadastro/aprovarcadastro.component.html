@@ -1,27 +1,50 @@
-<div class="content-heading">
-    Lojas Pendentes de Aprovação
-</div>
+<div class="wrapper">
+    <div class="page-header page-header-small" filter-color="white">
+        <div class="page-header-image rellax-header" data-rellax-speed="-7"
+            style="background-image: url('assets/img/bg19.jpg')">
+        </div>
+        <div class="container">
+            <div class="content-center brand">
+                <h2 class="title">Solicitação de cadastros</h2>
+                <h4 class="description text-white">
+                    Olha toda essa galera que quer fazer parte do seu time!
+                </h4>
+            </div>
+        </div>
+    </div>
 
-<div class="row">
-    <div class="col-lg-4 col-sm-6" *ngFor="let p of cadastros;">
-        <div class="card card-default">
-            <div class="card-header">
-                <a class="float-right text-muted" (click)="favContact1=!favContact1">
-                    <em class="fa" [ngClass]="favContact1 ? 'fa-star text-warning' : 'fa-star-o'"></em>
-                </a>
-            </div>
-            <div class="card-body text-center">
-                <img class="mb-2 img-fluid rounded-circle thumb64" src="assets/img/user/02.jpg" alt="Contact" />
-                <h4>{{p.nome}}</h4>
-                <p>Hello, I'm a just a dummy contact in your contact list and this is my presentation text. Have fun!
-                </p>
-            </div>
-            <div class="card-footer d-flex">
-                <div>
-                    <button type="button" class="btn btn-xs btn-primary" (click)="AprovarCadastro(true, p)">Aceitar Cadastro</button>
-                </div>
-                <div class="ml-auto">
-                    <button type="button" class="btn btn-xs btn-secondary" (click)="IrParaVisualizacao(p.nome, p.email)">Visualizar</button>
+    <div class="main">
+        <div class="contact-content">
+            <div class="container">
+                <div class="row section section-about-us">
+                    <div class="col-xl-6 col-lg-7 ml-auto mr-auto" *ngFor="let p of cadastros;">
+                        <div class="card card-profile">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="card-image">
+                                        <a href="#pablo"> <img class="img" src="assets/img/default-avatar.png"></a>
+                                    </div>
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="card-body">
+                                        <h3 class="card-title">{{p.empresa}}</h3>
+                                        <p class="card-description">
+                                            <strong>Representante: </strong><br>{{p.representante}}
+                                            <br><strong>Email: </strong><br>{{p.email}}
+                                            <br><strong>Cnpj: </strong><br>{{p.cnpj}}
+                                            <br><strong>Contato: </strong><br>{{p.telefone}}
+                                        </p>
+                                        <div class="text-center">
+                                            <button type="button" class="btn btn-xs btn-primary"
+                                                (click)="AprovarCadastro(true, p)">Aceitar</button>
+                                            <button type="button" class="btn btn-xs btn-danger"
+                                                (click)="RecusarCadastro(false, p)">Recusar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

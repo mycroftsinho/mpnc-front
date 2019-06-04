@@ -8,8 +8,8 @@
         </a>
         <div ngbDropdownMenu *ngIf="administrador">
           <a class="dropdown-header">Perfil Administrador</a>
+          <a class="dropdown-item" [routerLink]="['/aprovarcadastro']">Aprovar Solicitações</a>
           <a class="dropdown-item" [routerLink]="['/listarcota']">Definir Cotas</a>
-          <a class="dropdown-item" href="#">Aprovar Solicitações</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Visualizar Lojas</a>
           <div class="dropdown-divider"></div>

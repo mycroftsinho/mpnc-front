@@ -28,32 +28,39 @@ export class AprovarCadastroComponent implements OnInit {
         });
     }
 
-    IrParaVisualizacao(nome: string, email: string) {
-        this.router.navigate(['/cadastro/visualizar'],
-            {
-                queryParams: {
-                    nome,
-                    email,
-                }
-            });
+    RecusarCadastro(aprovacao: boolean, cadastro: any) {
+        if (confirm('Tem certeza que deseja Remover esta solicitação?')) {
+            console.log(cadastro);
+            this.EnviarSolicitacao(aprovacao, cadastro);
+            alert('Solicitação Removida com Sucesso!');
+        }
     }
 
     AprovarCadastro(aprovacao: boolean, cadastro: any) {
+        if (confirm('Tem certeza que deseja Aceitar esta solicitação?')) {
+            console.log(cadastro);
+            this.EnviarSolicitacao(aprovacao, cadastro);
+            alert('Solicitação Removida com Sucesso!');
+        }
+    }
+
+    EnviarSolicitacao(aprovacao: boolean, cadastro: any){
         const obj: AprovacaoRequest = new AprovacaoRequest();
         obj.Email = cadastro.email;
-        obj.Nome = cadastro.nome;
+        obj.Cnpj = cadastro.cnpj;
+        obj.LojaId = cadastro.lojaId;
         obj.IntencaoDeAprovacao = aprovacao;
 
         this.service.AprovarCadastroDoLojista(obj).subscribe((result) => {
             this.RemoverItemDaLista(cadastro);
+            alert('Cadastro aceito com sucesso!');
         }, (err) => {
-            console.log('Teste2');
             if (err.status === 404) {
-                alert('Falha na aprovação do cadastro!');
+                alert(err.result);
             } else if (err.status === 505) {
-                alert('Cadastro do motorista inválido!');
+                alert(err.result);
             } else {
-                alert('Erro na comunicação com o servidor, tente mais tarde!');
+                alert(err.result);
             }
         });
     }

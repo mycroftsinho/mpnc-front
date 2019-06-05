@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CadastroService } from '../../services/CadastroService';
 import { AprovacaoRequest } from '../../models/AprocacaoRequest';
-import { Alert } from 'selenium-webdriver';
 
 @Component({
     selector: 'app-aprovarcadastro',
@@ -29,39 +28,32 @@ export class AprovarCadastroComponent implements OnInit {
         });
     }
 
-    RecusarCadastro(aprovacao: boolean, cadastro: any) {
-        if (confirm('Tem certeza que deseja Remover esta solicitação?')) {
-            console.log(cadastro);
-            this.EnviarSolicitacao(aprovacao, cadastro);
-            alert('Solicitação Removida com Sucesso!');
-        }
+    IrParaVisualizacao(nome: string, email: string) {
+        this.router.navigate(['/cadastro/visualizar'],
+            {
+                queryParams: {
+                    nome,
+                    email,
+                }
+            });
     }
 
     AprovarCadastro(aprovacao: boolean, cadastro: any) {
-        if (confirm('Tem certeza que deseja Aceitar esta solicitação?')) {
-            console.log(cadastro);
-            this.EnviarSolicitacao(aprovacao, cadastro);
-            alert('Solicitação Removida com Sucesso!');
-        }
-    }
-
-    EnviarSolicitacao(aprovacao: boolean, cadastro: any){
         const obj: AprovacaoRequest = new AprovacaoRequest();
         obj.Email = cadastro.email;
-        obj.Cnpj = cadastro.cnpj;
-        obj.LojaId = cadastro.lojaId;
+        obj.Nome = cadastro.nome;
         obj.IntencaoDeAprovacao = aprovacao;
 
         this.service.AprovarCadastroDoLojista(obj).subscribe((result) => {
             this.RemoverItemDaLista(cadastro);
-            alert('Cadastro aceito com sucesso!');
         }, (err) => {
+            console.log('Teste2');
             if (err.status === 404) {
-                alert(err.result);
+                alert('Falha na aprovação do cadastro!');
             } else if (err.status === 505) {
-                alert(err.result);
+                alert('Cadastro do motorista inválido!');
             } else {
-                alert(err.result);
+                alert('Erro na comunicação com o servidor, tente mais tarde!');
             }
         });
     }

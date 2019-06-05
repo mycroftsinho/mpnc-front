@@ -40,7 +40,7 @@ export class VisualizarCadastroComponent implements OnInit {
     AprovarCadastro(aprovacao: boolean) {
         const obj: AprovacaoRequest = new AprovacaoRequest();
         obj.Email = this.cadastro.email;
-        obj.Cnpj = this.cadastro.nome;
+        obj.Nome = this.cadastro.nome;
         obj.IntencaoDeAprovacao = aprovacao;
 
         this.service.AprovarCadastroDoLojista(obj).subscribe((result) => {

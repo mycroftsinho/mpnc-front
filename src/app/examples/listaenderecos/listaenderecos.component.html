@@ -1,0 +1,91 @@
+<div class="wrapper">
+    <div class="page-header page-header-small clear-filter" filter-color="white">
+        <div class="page-header-image rellax-header" data-rellax-speed="-7"
+            style="background-image: url('assets/img/header.jpg');">
+        </div>
+        <div class="container">
+            <div class="content-center brand">
+                <h1 class="h1-seo">Cadastre seus endereços, para que seus clientes possam saber onde você está!</h1>
+                <hr>
+            </div>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 text-left">
+                        <h2 class="section-title">
+                            Minhas Lojas
+                        </h2>
+                    </div>
+                    <div class="col-md-4 text-right">
+                        <button class="float-right btn btn-primary btn-lg" (click)="CadastrarEndereco()">
+                            Cadastrar Loja
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-4" *ngFor="let p of cadastros;">
+                        <div class="card card-product card-plain">
+                            <div class="card-image"><img src="{{'data:image/png;base64,' + p.imagem}}" class="img rounded"></div>
+                            <div class="card-body">
+                                <h4 class="card-title"><a href="#pablo">Endereço da Loja</a></h4>
+                                <p>Rua: {{p.rua}}</p>
+                                <p>Bairro: {{p.bairro}}</p>
+                                <p>Numero: {{p.numero}}</p>
+                            </div>
+                        </div>
+                        <div class="card-footer d-flex">
+                            <div>
+                                <button type="button" class="btn btn-xs btn-danger" (click)="RemoverEndereco(p)">Remover
+                                    Loja</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div *ngIf="possuiCadastros" class="col-md-12">
+                    <p class="alert alert-info">N]ao há lojas cadastradas!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer" data-background-color="black">
+        <div class="container">
+            <nav>
+                <ul>
+                    <li>
+                        <a href="https://www.creative-tim.com">
+                            Creative Tim
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.creative-tim.com/about-us">
+                            About Us
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://blog.creative-tim.com">
+                            Blog
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/creativetimofficial/now-ui-kit/blob/master/LICENSE.md">
+                            MIT License
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="copyright">
+                &copy;
+                {{data | date: 'yyyy'}}, Designed by
+                <a href="https://www.invisionapp.com" target="_blank">Invision</a>. Coded by
+                <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>.
+            </div>
+        </div>
+    </footer>
+</div>

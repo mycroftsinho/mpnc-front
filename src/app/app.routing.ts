@@ -14,6 +14,8 @@ import { SolicitarCadastroComponent } from './examples/solicitarcadastro/solicit
 import { VisualizarCadastroComponent } from './examples/visualizarcadastro/visualizarcadastro.component';
 import { ListarLojaComponent } from './examples/listarloja/listarloja.component';
 import { AlterarLojaComponent } from './examples/alterarloja/alterarloja.component';
+import { ListaEnderecosComponent } from './examples/listaenderecos/listaenderecos.component';
+import { CadastrarEnderecoComponent } from './examples/cadastrarendereco/cadastrarendereco.component';
 
 const routes: Routes = [
     { path: '', redirectTo: 'index', pathMatch: 'full' },
@@ -27,7 +29,9 @@ const routes: Routes = [
     { path: 'solicitarcadastro',    component: SolicitarCadastroComponent },
     { path: 'visualizarcadastro',   component: VisualizarCadastroComponent },
     { path: 'listarlojas',          component: ListarLojaComponent },
-    { path: 'alterarloja',          component: AlterarLojaComponent }
+    { path: 'alterarloja',          component: AlterarLojaComponent },
+    { path: 'listaenderecos',        component: ListaEnderecosComponent },
+    { path: 'cadastrarendereco',        component: CadastrarEnderecoComponent }
 ];
 
 @NgModule({

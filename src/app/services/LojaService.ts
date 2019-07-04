@@ -9,7 +9,7 @@ export class LojaService {
 
     private accessPointUrlProd = 'https://buscadoronline-back.azurewebsites.net/api';
     private accessPointUrlLocal = 'https://localhost:5001/api';
-    private token = localStorage.getItem('jwt');
+    private token = localStorage.getItem('application-usertoken');
 
     constructor(private http: HttpClient) {
     }

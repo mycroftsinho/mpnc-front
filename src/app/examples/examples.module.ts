@@ -18,6 +18,8 @@ import { SolicitarCadastroComponent } from './solicitarcadastro/solicitarcadastr
 import { VisualizarCadastroComponent } from './visualizarcadastro/visualizarcadastro.component';
 import { ListarLojaComponent } from './listarloja/listarloja.component';
 import { AlterarLojaComponent } from './alterarloja/alterarloja.component';
+import { ListaEnderecosComponent } from './listaenderecos/listaenderecos.component';
+import { CadastrarEnderecoComponent } from './cadastrarendereco/cadastrarendereco.component';
 
 @NgModule({
     imports: [
@@ -43,7 +45,9 @@ import { AlterarLojaComponent } from './alterarloja/alterarloja.component';
         SolicitarCadastroComponent,
         VisualizarCadastroComponent,
         ListarLojaComponent,
-        AlterarLojaComponent
+        AlterarLojaComponent,
+        ListaEnderecosComponent,
+        CadastrarEnderecoComponent
     ]
 })
 export class ExamplesModule { }
